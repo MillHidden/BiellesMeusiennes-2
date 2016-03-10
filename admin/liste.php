@@ -25,6 +25,8 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.min.css">
+
     <link type="text/css" rel="stylesheet" href="../assets/css/TopNavBarStyles.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -59,7 +61,12 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
     .container-fluid {
         padding-top: 60px;
     }
-
+    table.dataTable{
+        margin:0;
+    }
+    #moTable {
+        width:100%;
+    }
 </style>
 
 <!--FIN du style CSS perso-->
@@ -101,7 +108,7 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
                         <th data-priority="7">Immat.</th>
                         <th data-priority="4">Date de Mise en Circulation</th>
                         <th data-priority="2">Validé</th>
-                        <th style="display:none;"></th>
+                        <th style="display:none;" class="Hidden"></th>
                         <th data-priority="9">Actions Administrateur</th>
                     </tr>
                     </thead>
@@ -117,7 +124,7 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
                             } else if($inscription->valid == 2){
                                 $color ="red";
                                 $text = "refusé";
-                            }?>                            
+                            }?>
                             <td><?= $inscription->lastname; ?></td>
                             <td><?= $inscription->firstname; ?></td>
                             <td><?= $inscription->email; ?></td>
@@ -127,7 +134,7 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
                             <td><?= $inscription->immat; ?></td>
                             <td><?= $inscription->date_circu; ?></td>
                             <td><span style="color:<?=$color ?>; width:0.3%;"><?= $text ?></span></td>
-                            <td style="display:none;"><span style="visibility: hidden;"><?= $inscription->valid;?></span></td>
+                            <td style="display:none;" class="Hidden"><span style="visibility: hidden;"><?= $inscription->valid;?></span></td>
                             <td>
                                 <span class="pull-left">
                                     <a href="view.php?user=<?= $inscription->id; ?>&token=<?= $_GET['token'] ?>"
@@ -166,6 +173,9 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
 <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 <script src="http://<?=$_SERVER['SERVER_NAME']."/assets/js/topNavBarScript.js";?>"></script>
 
+<script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('#moTable').dataTable({
@@ -196,9 +206,12 @@ $inscriptions = Config::QueryBuilder()->findAll("exposants")->execute();
             },
             "pageLength": 100, // Affichage de 100 éléments de base au chargement de la page
             "lengthMenu": [ [100, 250, 500, 1000, -1], [100, 250, 500, 1000, "tous les"] ], // Changement du menu de base pour la sélection de l'affichage du nombre d'éléments : [nombres d'éléments à afficher] [libellés]
-            "order": [[10, 'asc']]
+            "order": [[1, 'asc']]
         });
-
+        $('#moTable').css('width', '100%');
+        $('.dataTables_scrollHeadInner').css('width', '100%');
+        $('.table').css('width', '100%');
+        $('.Hidden').css('display', 'none');
         var token = location.search.split('token=');
 
         $('tbody').on('click', '.btn-validate', function (e) {
