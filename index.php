@@ -12,7 +12,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/includes/public/functions.php');
 try {
 	verif_origin_user();
 } catch (Exception $e) {
-	header('Location: http://biellesmeusiennes.com/error1');
+	header('Location: http://biellesmeusiennes.com/error/1');
 	die();
 }
 
@@ -20,7 +20,7 @@ try {
 $captcha = new Recaptcha ('x', 'x');
 if (!empty($_POST)) {
 	if ($captcha->isValid($_POST['g-recaptcha-response']) == false) {
-		header('Location: http://biellesmeusiennes.com/error2');
+		header('Location: http://biellesmeusiennes.com/error/2');
 		die();
 	}
 
@@ -104,15 +104,15 @@ if (!empty($_POST)) {
 				/* effacer les données dans la bdd*/
 
 				/* */
-				header('Location: http://biellesmeusiennes.com/error3');
+				header('Location: http://biellesmeusiennes.com/error/3');
 			}
 			
 		} catch (Exception $e) {		
 			
-			header('Location: http://biellesmeusiennes.com/error4');
+			header('Location: http://biellesmeusiennes.com/error/4');
 		}
 	} else {		
-		header('Location: http://biellesmeusiennes.com/error5');
+		header('Location: http://biellesmeusiennes.com/error/5');
 	}
 }
 
