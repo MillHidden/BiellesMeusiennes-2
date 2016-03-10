@@ -1,0 +1,18 @@
+{
+    "database": {
+        "host": "x",
+        "name": "x",
+        "user": "x",
+        "pass": "x"
+    },
+    "smtp": {
+        "Host": "x",
+        "Username": "x",
+        "Password": "x",
+        "SMTPSecure": "tls",
+        "Port" : 587,
+        "From_adress" : "x",
+        "From_name" : "x",
+        "SMTPAuth": true
+    }
+}
