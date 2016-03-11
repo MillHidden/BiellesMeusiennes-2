@@ -1,0 +1,152 @@
+@media screen and (min-width: 720px) {
+
+    
+        .error-container {
+            width: 826px;
+            height : 539px;
+            visibility: visible;
+        }
+    
+        .error-voiture {
+            position: relative;
+            z-index: 1;
+        }
+    
+        .error-roue {
+            position: relative;
+            left : 289px;
+            top : -250px;
+            z-index : 2;
+        }  
+    
+        .success-container {
+            width : 100%;
+            overflow: hidden;
+            visibility: visible;        
+        }
+    
+        .container-anim {
+            position: relative;        
+        }
+        
+        .container-car {
+            margin-top: -20px;
+        }
+    
+        .container-road {
+            position: relative;
+            margin-top: -19px;
+        }      
+    
+        .container-wheels {
+            margin-top: -230px;
+        }   
+    
+        #roue-arriere {
+            position: relative;
+            left : 298px;  
+            display: inline-block;
+        }
+    
+        #roue-avant {
+            position: relative;
+            left : 397px;        
+            z-index : 3;
+            display: inline-block;
+        }
+     
+        .anim-success-car {
+            -moz-animation-duration: 7s;
+            -webkit-animation-duration: 7s;
+            animation-duration: 7s;
+            -o-animation-duration:7s;
+            -moz-animation-name: move-car;
+            -webkit-animation-name: move-car;            
+            animation-name: move-car;
+            -o-animation-name:move-car;
+            -moz-animation-iteration-count: 1;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            -o-animation-iteration-count:1;
+            position: relative; 
+        }
+    
+        #anim-car {
+            -moz-animation-duration: 0.2s;
+            -webkit-animation-duration: 0.2s;
+            animation-duration: 0.2s;
+            -o-animation-duration: 0.2s; 
+            -moz-animation-name: move-habit;
+            -webkit-animation-name: move-habit;
+            animation-name: move-habit;
+            -o-animation-name: move-habit; 
+            -moz-animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            -webkit-animation-direction: alternate;
+            position: relative;
+        }
+      
+        #anim-error-roue, #roue-arriere, #roue-avant { 
+           animation-name:rotation-roue;
+           -webkit-animation-name:rotation-roue; 
+           -moz-animation-name:rotation-roue;
+           -o-animation-name:rotation-roue; 
+           animation-duration:2s;
+           -webkit-animation-duration:2s; 
+           -moz-animation-duration:2s;
+           -o-animation-duration:2s; 
+           animation-iteration-count:infinite;
+           -webkit-animation-iteration-count:infinite; 
+           -moz-animation-iteration-count:infinite;
+           -o-animation-iteration-count:infinite; 
+           animation-timing-function:linear;
+           -webkit-animation-timing-function:linear; 
+           -moz-animation-timing-function:linear;
+           -o-animation-timing-function:linear; 
+        } 
+    
+        
+    } 
+    
+    @keyframes rotation-roue { 
+        from {transform:rotate(0deg);} to {transform:rotate(360deg);} 
+    } 
+    @-webkit-keyframes rotation-roue{ 
+        from {-webkit-transform:rotate(0deg);} to {-webkit-transform:rotate(360deg);} 
+    } 
+    @-moz-keyframes rotation-roue{ 
+        from {-moz-transform:rotate(0deg);} to {-moz-transform:rotate(360deg);} 
+    } 
+    @-o-keyframes rotation-roue{ 
+        from {-o-transform:rotate(0deg);} to {-o-transform:rotate(360deg);} 
+    }
+
+    @-moz-keyframes move-habit{
+        from {top: -10px;} to {top: 0px;}
+    }
+    @-webkit-keyframes move-habit{
+        from {top: -10px;} to {top: 0px;}
+    }
+    @keyframes move-habit{
+        from {top: -10px;} to {top: 0px;}
+    }
+    @-o-keyframes move-habit{
+        from {top: -10px;} to {top: 0px;}
+    }    
+
+    @-moz-keyframes move-car {
+        from {margin-left:-100%;} to {margin-left: 80%;}
+    } 
+    @-webkit-keyframes move-car {
+        from {margin-left:-100%;} to {margin-left: 80%;}
+    }
+    @keyframes move-car{
+        from {margin-left:-100%;} to {margin-left: 80%;}
+    }
+    @-o-keyframes move-car{
+        from {margin-left:-100%;} to {margin-left: 80%;}
+    }
+    
